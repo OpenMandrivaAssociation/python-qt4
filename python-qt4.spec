@@ -1,14 +1,14 @@
 Name: python-qt4
 Summary: PyQt is a set of Python bindings for Trolltech's Qt application framework
 Version: 4.3
-Release: %mkrel 1
+Release: %mkrel 3
 Group: Development/KDE and Qt
 URL: http://www.riverbankcomputing.co.uk/pyqt/index.php
 Source0: http://www.riverbankcomputing.com/Downloads/PyQt3/GPL/PyQt-x11-gpl-%{version}.tar.gz
 License: GPL
 BuildRoot: %_tmppath/%name-%version-%release-root
 BuildRequires: qt4-devel 
-BuildRequires: python-dbus
+BuildRequires: dbus-python
 BuildRequires: python-sip >= 1:4.7
 %py_requires -d
 Provides: PyQt4 = %epoch:%version-%release
@@ -207,6 +207,7 @@ PyQt 4 designer
 Summary: PyQt 4 devel
 Group: Development/KDE and Qt
 Requires: %{name}
+Requires: qt4-designer
 
 %description devel
 PyQt 4 devel utilities
@@ -216,6 +217,7 @@ PyQt 4 devel utilities
 %_bindir/pyuic4
 %_bindir/pyrcc4
 %_bindir/pylupdate4
+%qt4plugins/designer/*
 
 #------------------------------------------------------------
 
@@ -231,7 +233,7 @@ echo "yes" | python ./configure.py
 
 %install
 rm -rf %buildroot
-make DESTDIR=%buildroot install
+make DESTDIR=%buildroot INSTALL_ROOT=%buildroot install
 
 %clean
 rm -rf %buildroot
