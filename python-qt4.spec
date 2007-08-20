@@ -8,6 +8,7 @@ Source0: http://www.riverbankcomputing.com/Downloads/PyQt3/GPL/PyQt-x11-gpl-%{ve
 License: GPL
 BuildRoot: %_tmppath/%name-%version-%release-root
 BuildRequires: qt4-devel 
+BuildRequires: python-dbus
 BuildRequires: python-sip >= 1:4.7
 %py_requires -d
 Provides: PyQt4 = %epoch:%version-%release
