@@ -5,6 +5,7 @@ Release: %mkrel 3
 Group: Development/KDE and Qt
 URL: http://www.riverbankcomputing.co.uk/pyqt/index.php
 Source0: http://www.riverbankcomputing.com/Downloads/PyQt3/GPL/PyQt-x11-gpl-%{version}.tar.gz
+Patch0: PyQt-x11-gpl-4.3-test64.patch
 License: GPL
 BuildRoot: %_tmppath/%name-%version-%release-root
 BuildRequires: qt4-devel 
@@ -223,6 +224,7 @@ PyQt 4 devel utilities
 
 %prep
 %setup -q -n PyQt-x11-gpl-%version
+%patch -p1 -b .64
 
 %build
 export QTDIR=%qt4dir
