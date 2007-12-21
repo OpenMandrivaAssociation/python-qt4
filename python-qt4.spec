@@ -7,6 +7,7 @@ URL: http://www.riverbankcomputing.co.uk/pyqt/index.php
 Source0: http://www.riverbankcomputing.com/Downloads/PyQt4/GPL/PyQt-x11-gpl-%{version}.tar.gz
 Patch0: PyQt-x11-gpl-4.3-test64.patch
 License: GPLv2+
+BuildRoot: %_tmppath/%name-%version-%release-root
 BuildRequires: qt4-devel 
 BuildRequires: dbus-python
 BuildRequires: python-sip >= 1:4.7
