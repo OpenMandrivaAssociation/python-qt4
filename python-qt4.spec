@@ -13,7 +13,7 @@ BuildRequires: dbus-python
 BuildRequires: python-sip >= 1:4.7
 BuildRequires: sed
 %py_requires -d
-Provides: PyQt4 = %epoch:%version-%release
+Provides: PyQt4 = %version-%release
 Requires: python-sip >= 1:4.7
 Requires: %{name}-core = %{version}
 Requires: %{name}-assistant = %{version}
