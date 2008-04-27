@@ -242,7 +242,7 @@ for name in dbus QtCore QtNetwork QtScript QtSql QtTest QtXml; do
     %{__sed} -i "s,-lXext -lX11,,g" ${name}/Makefile
 done
 
-%{make} CFLAGS="%{optflags} -fPIC -DPYTHON_LIB=\"libpython2.5.so\"" CXXFLAGS="%{optflags} -fPIC -DPYTHON_LIB=\"libpython2.5.so\""
+%{make} CFLAGS='%{optflags} -fPIC -DPYTHON_LIB=\"libpython2.5.so\"' CXXFLAGS='%{optflags} -fPIC -DPYTHON_LIB=\"libpython2.5.so\"'
 
 %install
 %{__rm} -rf %{buildroot}
