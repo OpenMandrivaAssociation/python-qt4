@@ -1,20 +1,22 @@
+%define snapshot -snapshot-20080424
+
 Name: python-qt4
 Summary: Set of Python bindings for Trolltech's Qt application framework
-Version: 4.3.3
-Release: %mkrel 2
+Version: 4.4
+Release: %mkrel 0.20080424.1
 Group: Development/KDE and Qt
 URL: http://www.riverbankcomputing.co.uk/pyqt/index.php
-Source0: http://www.riverbankcomputing.com/Downloads/PyQt4/GPL/PyQt-x11-gpl-%{version}.tar.gz
+Source0: http://www.riverbankcomputing.com/Downloads/PyQt4/GPL/PyQt-x11-gpl-%{version}%{snapshot}.tar.gz
 Patch0: PyQt-x11-gpl-4.3-test64.patch
 License: GPLv2+
 BuildRoot: %_tmppath/%name-%version-%release-root
 BuildRequires: qt4-devel 
 BuildRequires: dbus-python
-BuildRequires: python-sip >= 1:4.7
+BuildRequires: python-sip >= 1:4.7.5
 BuildRequires: sed
 %py_requires -d
 Provides: PyQt4 = %version-%release
-Requires: python-sip >= 1:4.7
+Requires: python-sip >= 1:4.7.5
 Requires: %{name}-core = %{version}
 Requires: %{name}-assistant = %{version}
 Requires: %{name}-designer = %{version}
@@ -224,28 +226,27 @@ PyQt 4 devel utilities
 #------------------------------------------------------------
 
 %prep
-%setup -q -n PyQt-x11-gpl-%version
+%setup -q -n PyQt-x11-gpl-%{version}%{snapshot}
 %patch -p1 -b .64
 
 %build
 export QTDIR=%qt4dir
 export PATH=%qt4dir/bin:$PATH
-echo "yes" | python ./configure.py 
+echo "yes" | %{__python} ./configure.py
 
 # Some modules not requires X libraries
 # Python sip not diferentiate qt modules and always add a X set of 
 # libs to link. We're explicitely this unecessary links
 
 for name in dbus QtCore QtNetwork QtScript QtSql QtTest QtXml; do
-    sed -i "s,-lXext -lX11,,g" ${name}/Makefile
+    %{__sed} -i "s,-lXext -lX11,,g" ${name}/Makefile
 done
 
-%make
+%{make} CFLAGS="%{optflags} -fPIC -DPYTHON_LIB=\"libpython2.5.so\"" CXXFLAGS="%{optflags} -fPIC -DPYTHON_LIB=\"libpython2.5.so\""
 
 %install
-rm -rf %buildroot
-make DESTDIR=%buildroot INSTALL_ROOT=%buildroot install
+%{__rm} -rf %{buildroot}
+%{makeinstall_std} INSTALL_ROOT=%{buildroot}
 
 %clean
-rm -rf %buildroot
-
+%{__rm} -rf %{buildroot}
