@@ -1,22 +1,20 @@
-%define snapshot -snapshot-20080424
-
 Name: python-qt4
 Summary: Set of Python bindings for Trolltech's Qt application framework
-Version: 4.4
-Release: %mkrel 0.20080424.1
+Version: 4.4.2
+Release: %mkrel 1
 Group: Development/KDE and Qt
 URL: http://www.riverbankcomputing.co.uk/pyqt/index.php
-Source0: http://www.riverbankcomputing.com/Downloads/PyQt4/GPL/PyQt-x11-gpl-%{version}%{snapshot}.tar.gz
+Source0: http://www.riverbankcomputing.com/Downloads/PyQt4/GPL/PyQt-x11-gpl-%{version}.tar.gz
 Patch0: PyQt-x11-gpl-4.3-test64.patch
 License: GPLv2+
 BuildRoot: %_tmppath/%name-%version-%release-root
 BuildRequires: qt4-devel 
 BuildRequires: dbus-python
-BuildRequires: python-sip >= 1:4.7.5
+BuildRequires: python-sip >= 1:4.7.6
 BuildRequires: sed
 %py_requires -d
 Provides: PyQt4 = %version-%release
-Requires: python-sip >= 1:4.7.5
+Requires: python-sip >= 1:4.7.6
 Requires: %{name}-core = %{version}
 Requires: %{name}-assistant = %{version}
 Requires: %{name}-designer = %{version}
@@ -27,6 +25,7 @@ Requires: %{name}-script = %{version}
 Requires: %{name}-sql = %{version}
 Requires: %{name}-svg = %{version}
 Requires: %{name}-test = %{version}
+Requires: %{name}-webkit = %{version}
 Requires: %{name}-xml = %{version}
 
 %description
@@ -177,6 +176,21 @@ PyQt 4 test
 
 #------------------------------------------------------------
 
+%package webkit
+Summary: PyQt 4 Webkit
+Group: Development/KDE and Qt
+Requires: %{name}-core = %{version}
+
+%description webkit
+PyQt 4 webkit
+
+%files webkit
+%defattr(-,root,root)
+%py_platsitedir/PyQt4/QtWebKit.so
+%_datadir/sip/PyQt4/QtWebKit
+
+#------------------------------------------------------------
+
 %package xml
 Summary: PyQt 4 xml
 Group: Development/KDE and Qt
@@ -226,7 +240,7 @@ PyQt 4 devel utilities
 #------------------------------------------------------------
 
 %prep
-%setup -q -n PyQt-x11-gpl-%{version}%{snapshot}
+%setup -q -n PyQt-x11-gpl-%{version}
 %patch -p1 -b .64
 
 %build
