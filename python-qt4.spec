@@ -10,6 +10,7 @@ License: GPLv2+
 BuildRoot: %_tmppath/%name-%version-%release-root
 BuildRequires: qt4-devel 
 BuildRequires: dbus-python
+BuildRequires: dbus-devel
 BuildRequires: python-sip >= 1:4.7.6
 BuildRequires: sed
 %py_requires -d
