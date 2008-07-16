@@ -3,8 +3,8 @@ Summary: Set of Python bindings for Trolltech's Qt application framework
 Version: 4.4.2
 Release: %mkrel 2
 Group: Development/KDE and Qt
-URL: http://www.riverbankcomputing.co.uk/pyqt/index.php
-Source0: http://www.riverbankcomputing.com/Downloads/PyQt4/GPL/PyQt-x11-gpl-%{version}.tar.gz
+URL: http://www.riverbankcomputing.co.uk/software/pyqt/intro
+Source0: http://www.riverbankcomputing.co.uk/static/Downloads/PyQt4/PyQt-x11-gpl-%{version}.tar.gz
 Patch0: PyQt-x11-gpl-4.3-test64.patch
 License: GPLv2+
 BuildRoot: %_tmppath/%name-%version-%release-root
