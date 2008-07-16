@@ -28,6 +28,7 @@ Requires: %{name}-svg = %{version}
 Requires: %{name}-test = %{version}
 Requires: %{name}-webkit = %{version}
 Requires: %{name}-xml = %{version}
+Requires: %{name}-xmlpatterns = %{version}
 
 %description
 PyQt is a set of Python bindings for Trolltech's Qt application framework
@@ -204,6 +205,21 @@ PyQt 4 xml
 %defattr(-,root,root)
 %py_platsitedir/PyQt4/QtXml.so
 %_datadir/sip/PyQt4/QtXml
+
+#------------------------------------------------------------
+
+%package xmlpatterns
+Summary: PyQt 4 xmlpatterns
+Group: Development/KDE and Qt
+Requires: %{name}-core = %{version}
+
+%description xmlpatterns
+PyQt 4 xmlpatterns
+
+%files xmlpatterns
+%defattr(-,root,root)
+%py_platsitedir/PyQt4/QtXmlPatterns.so
+%_datadir/sip/PyQt4/QtXmlPatterns
 
 #------------------------------------------------------------
 
