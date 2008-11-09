@@ -252,6 +252,7 @@ PyQt 4 devel utilities
 %_bindir/pyuic4
 %_bindir/pyrcc4
 %_bindir/pylupdate4
+%qt4dir/qsci/api/python/*.api
 %qt4plugins/designer/*
 
 #------------------------------------------------------------
