@@ -5,17 +5,17 @@ Release: %mkrel 1
 Group: Development/KDE and Qt
 URL: http://www.riverbankcomputing.co.uk/software/pyqt/intro
 Source0: http://www.riverbankcomputing.co.uk/static/Downloads/PyQt4/PyQt-x11-gpl-%{version}.tar.gz
-Patch0: PyQt-x11-gpl-4.3-test64.patch
+Patch0: PyQt-x11-gpl-4.4.4-test64.patch
 License: GPLv2+
 BuildRoot: %_tmppath/%name-%version-%release-root
 BuildRequires: qt4-devel 
 BuildRequires: dbus-python
 BuildRequires: dbus-devel
-BuildRequires: python-sip >= 1:4.7.5
+BuildRequires: python-sip >= 1:4.7.8
 BuildRequires: sed
 %py_requires -d
 Provides: PyQt4 = %version-%release
-Requires: python-sip >= 1:4.7.6
+Requires: python-sip >= 1:4.7.8
 Requires: %{name}-core = %{version}
 Requires: %{name}-assistant = %{version}
 Requires: %{name}-designer = %{version}
