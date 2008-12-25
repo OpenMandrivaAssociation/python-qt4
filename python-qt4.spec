@@ -258,7 +258,7 @@ PyQt 4 devel utilities
 
 %prep
 %setup -q -n PyQt-x11-gpl-%{version}
-%patch -p1 -b .64
+%patch0 -p1 -b .64
 
 %build
 export QTDIR=%qt4dir
