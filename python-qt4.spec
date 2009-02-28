@@ -1,7 +1,7 @@
 Name: python-qt4
 Summary: Set of Python bindings for Trolltech's Qt application framework
 Version: 4.4.4
-Release: %mkrel 3
+Release: %mkrel 6
 Group: Development/KDE and Qt
 URL: http://www.riverbankcomputing.co.uk/software/pyqt/intro
 Source0: http://www.riverbankcomputing.co.uk/static/Downloads/PyQt4/PyQt-x11-gpl-%{version}.tar.gz
@@ -282,17 +282,29 @@ PyQt 4 devel utilities
 %build
 export QTDIR=%qt4dir
 export PATH=%qt4dir/bin:$PATH
-echo "yes" | %{__python} ./configure.py
+export CFLAGS='%{optflags} -fPIC' 
+export CXXFLAGS='%{optflags} -fPIC'
+echo "yes" | python ./configure.py
 
 # Some modules not requires X libraries
 # Python sip not diferentiate qt modules and always add a X set of 
 # libs to link. We're explicitely this unecessary links
+# Using same approach to add missin libpython linh
 
-for name in dbus QtCore QtNetwork QtScript QtSql QtTest QtXml; do
-    %{__sed} -i "s,-lXext -lX11,,g" ${name}/Makefile
+for name in dbus QtCore QtGui QtNetwork QtOpenGL QtWebKit QtScript QtSvg QtSql QtAssistant QtDesigner QtTest QtXml QtXmlPatterns QtHelp; do
+%if %mdkversion < 200910
+    %{__sed} -i "s,-lXext -lX11,-lpython2.5,g" ${name}/Makefile
+%else
+    %{__sed} -i "s,-lXext -lX11,-lpython2.6,g" ${name}/Makefile
+%endif
 done
+%if %mdkversion < 200910
+    %{__sed} -i "s/^LFLAGS = /LFLAGS = -lpython2.5 /g" Qt/Makefile
+%else
+    %{__sed} -i "s/^LFLAGS = /LFLAGS = -lpython2.6 /g" Qt/Makefile
+%endif
 
-%{make} CFLAGS='%{optflags} -fPIC -DPYTHON_LIB=\"libpython2.5.so\"' CXXFLAGS='%{optflags} -fPIC -DPYTHON_LIB=\"libpython2.5.so\"'
+%make
 
 %install
 %{__rm} -rf %{buildroot}
