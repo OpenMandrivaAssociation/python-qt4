@@ -284,7 +284,7 @@ export QTDIR=%qt4dir
 export PATH=%qt4dir/bin:$PATH
 export CFLAGS='%{optflags} -fPIC' 
 export CXXFLAGS='%{optflags} -fPIC'
-echo "yes" | python ./configure.py
+echo "yes" | python ./configure.py --qsci-api
 
 # Some modules not requires X libraries
 # Python sip not diferentiate qt modules and always add a X set of 
