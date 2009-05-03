@@ -13,7 +13,7 @@ BuildRoot: %_tmppath/%name-%version-%release-root
 BuildRequires: qt4-devel 
 BuildRequires: dbus-python
 BuildRequires: dbus-devel
-BuildRequires: python-sip >= 1:4.7.8
+BuildRequires: python-sip >= 1:4.8
 BuildRequires: qscintilla-qt4-devel
 BuildRequires: sed
 %py_requires -d
@@ -53,7 +53,7 @@ PyQt 4 core
 %py_platsitedir/PyQt4/uic
 %py_platsitedir/PyQt4/__init__.py
 %py_platsitedir/PyQt4/pyqtconfig.py
-%py_puresitedir/dbus/*
+#%py_puresitedir/dbus/*
 %py_platsitedir/PyQt4/Qt.so
 %py_platsitedir/PyQt4/QtCore.so
 %_datadir/sip/PyQt4/Qt
@@ -149,6 +149,8 @@ PyQt 4 script
 %defattr(-,root,root)
 %py_platsitedir/PyQt4/QtScript.so
 %_datadir/sip/PyQt4/QtScript
+%_datadir/sip/PyQt4/QtScriptTools
+%py_platsitedir/PyQt4/QtScriptTools.so
 
 #------------------------------------------------------------
 
@@ -292,7 +294,7 @@ echo "yes" | python ./configure.py --qsci-api
 # libs to link. We're explicitely this unecessary links
 # Using same approach to add missin libpython linh
 
-for name in QtCore QtGui QtNetwork QtOpenGL QtWebKit QtScript QtSvg QtSql QtAssistant QtDesigner QtTest QtXml QtXmlPatterns QtHelp; do
+for name in QtCore QtGui QtNetwork QtOpenGL QtWebKit QtScript QtSvg QtSql QtAssistant QtDesigner QtTest QtXml QtXmlPatterns QtHelp QtScriptTools; do
 %if %mdkversion < 200910
     %{__sed} -i "s,-lXext -lX11,-lpython2.5,g" ${name}/Makefile
 %else
