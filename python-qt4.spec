@@ -54,7 +54,7 @@ PyQt 4 core
 %py_platsitedir/PyQt4/uic
 %py_platsitedir/PyQt4/__init__.py
 %py_platsitedir/PyQt4/pyqtconfig.py
-#%py_puresitedir/dbus/*
+%py_puresitedir/dbus/*
 %py_platsitedir/PyQt4/Qt.so
 %py_platsitedir/PyQt4/QtCore.so
 %_datadir/sip/PyQt4/Qt
@@ -279,7 +279,7 @@ PyQt 4 devel utilities
 #------------------------------------------------------------
 
 %prep
-%setup -q -n PyQt-x11-gpl-%{version}-snapshot-20090502
+%setup -q -n PyQt-x11-gpl-%{version}-snapshot-%date
 %patch0 -p1 -b .64
 %patch1 -p0 -b .str
 
@@ -295,7 +295,7 @@ echo "yes" | python ./configure.py --qsci-api
 # libs to link. We're explicitely this unecessary links
 # Using same approach to add missin libpython linh
 
-for name in QtCore QtGui QtNetwork QtOpenGL QtWebKit QtScript QtSvg QtSql QtAssistant QtDesigner QtTest QtXml QtXmlPatterns QtHelp QtScriptTools; do
+for name in dbus QtCore QtGui QtNetwork QtOpenGL QtWebKit QtScript QtSvg QtSql QtAssistant QtDesigner QtTest QtXml QtXmlPatterns QtHelp QtScriptTools; do
 %if %mdkversion < 200910
     %{__sed} -i "s,-lXext -lX11,-lpython2.5,g" ${name}/Makefile
 %else
