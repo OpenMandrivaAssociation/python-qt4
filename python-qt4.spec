@@ -6,7 +6,7 @@ Version: 4.5
 Release: %mkrel 0.%date.1
 Group: Development/KDE and Qt
 URL: http://www.riverbankcomputing.co.uk/software/pyqt/intro
-Source0: http://www.riverbankcomputing.co.uk/static/Downloads/PyQt4/PyQt-x11-gpl-%{version}-snapshot-20090502.tar.gz
+Source0: http://www.riverbankcomputing.co.uk/static/Downloads/PyQt4/PyQt-x11-gpl-%{version}-snapshot-%date.tar.gz
 Patch0: PyQt-x11-gpl-4.4.4-test64.patch
 Patch1: PyQt-x11-gpl-4.4.4-fix-str-fmt.patch
 License: GPLv2+
