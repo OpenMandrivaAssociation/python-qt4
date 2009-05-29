@@ -1,4 +1,5 @@
-%define   date 20090502
+%define   date 20090527
+
 Name: python-qt4
 Summary: Set of Python bindings for Trolltech's Qt application framework
 Version: 4.5
