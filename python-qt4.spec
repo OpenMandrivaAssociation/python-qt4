@@ -1,12 +1,10 @@
-%define   date 20090527
-
 Name: python-qt4
 Summary: Set of Python bindings for Trolltech's Qt application framework
 Version: 4.5
-Release: %mkrel 0.%date.2
+Release: %mkrel 1
 Group: Development/KDE and Qt
 URL: http://www.riverbankcomputing.co.uk/software/pyqt/intro
-Source0: http://www.riverbankcomputing.co.uk/static/Downloads/PyQt4/PyQt-x11-gpl-%{version}-snapshot-%date.tar.gz
+Source0: http://www.riverbankcomputing.co.uk/static/Downloads/PyQt4/PyQt-x11-gpl-%{version}.tar.gz
 Patch0: PyQt-x11-gpl-4.4.4-test64.patch
 Patch1: PyQt-x11-gpl-4.4.4-fix-str-fmt.patch
 License: GPLv2+
@@ -279,7 +277,7 @@ PyQt 4 devel utilities
 #------------------------------------------------------------
 
 %prep
-%setup -q -n PyQt-x11-gpl-%{version}-snapshot-%date
+%setup -q -n PyQt-x11-gpl-%{version}
 %patch0 -p1 -b .64
 %patch1 -p0 -b .str
 
