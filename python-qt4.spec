@@ -1,15 +1,16 @@
 Name: python-qt4
 Summary: Set of Python bindings for Trolltech's Qt application framework
 Version: 4.5.1
-Release: %mkrel 1
+Release: %mkrel 2
 Group: Development/KDE and Qt
 URL: http://www.riverbankcomputing.co.uk/software/pyqt/intro
 Source0: http://www.riverbankcomputing.co.uk/static/Downloads/PyQt4/PyQt-x11-gpl-%{version}.tar.gz
 Patch0: PyQt-x11-gpl-4.4.4-test64.patch
 Patch1: PyQt-x11-gpl-4.4.4-fix-str-fmt.patch
+Patch2: PyQt-x11-gpl-4.5.1-desktop.patch
 License: GPLv2+
 BuildRoot: %_tmppath/%name-%version-%release-root
-BuildRequires: qt4-devel 
+BuildRequires: qt4-devel >= 3:4.5.1
 BuildRequires: dbus-python
 BuildRequires: dbus-devel
 BuildRequires: python-sip >= 1:4.8.1
@@ -17,7 +18,7 @@ BuildRequires: qscintilla-qt4-devel
 BuildRequires: sed
 %py_requires -d
 Provides: PyQt4 = %version-%release
-Requires: python-sip >= 1:4.8
+Requires: python-sip >= 1:4.7.8
 Requires: %{name}-core = %{version}
 Requires: %{name}-assistant = %{version}
 Requires: %{name}-designer = %{version}
@@ -148,8 +149,6 @@ PyQt 4 script
 %defattr(-,root,root)
 %py_platsitedir/PyQt4/QtScript.so
 %_datadir/sip/PyQt4/QtScript
-%_datadir/sip/PyQt4/QtScriptTools
-%py_platsitedir/PyQt4/QtScriptTools.so
 
 #------------------------------------------------------------
 
@@ -243,6 +242,21 @@ PyQt 4 xmlpatterns
 
 #------------------------------------------------------------
 
+%package scripttools
+Summary: PyQt 4 scripttools
+Group: Development/KDE and Qt
+Requires: %{name}-core = %{version}
+
+%description scripttools
+PyQt 4 scripttools
+
+%files scripttools
+%defattr(-,root,root)
+%py_platsitedir/PyQt4/QtScriptTools.so
+%_datadir/sip/PyQt4/QtScriptTools
+
+#------------------------------------------------------------
+
 %package designer
 Summary: PyQt 4 designer
 Group: Development/KDE and Qt
@@ -280,37 +294,35 @@ PyQt 4 devel utilities
 %setup -q -n PyQt-x11-gpl-%{version}
 %patch0 -p1 -b .64
 %patch1 -p0 -b .str
+%patch2 -p0 -b .desktop
 
 %build
 export QTDIR=%qt4dir
 export PATH=%qt4dir/bin:$PATH
 export CFLAGS='%{optflags} -fPIC' 
 export CXXFLAGS='%{optflags} -fPIC'
-echo "yes" | python ./configure.py --qsci-api
 
+python ./configure.py \
+	--qsci-api \
+	--confirm-license
+	
 # Some modules not requires X libraries
 # Python sip not diferentiate qt modules and always add a X set of 
 # libs to link. We're explicitely this unecessary links
 # Using same approach to add missin libpython linh
 
 for name in dbus QtCore QtGui QtNetwork QtOpenGL QtWebKit QtScript QtSvg QtSql QtAssistant QtDesigner QtTest QtXml QtXmlPatterns QtHelp QtScriptTools; do
-%if %mdkversion < 200910
-    %{__sed} -i "s,-lXext -lX11,-lpython2.5,g" ${name}/Makefile
-%else
-    %{__sed} -i "s,-lXext -lX11,-lpython2.6,g" ${name}/Makefile
-%endif
+    sed -i "s,-lXext -lX11,$(python-config --libs) ,g" ${name}/Makefile
 done
-%if %mdkversion < 200910
-    %{__sed} -i "s/^LFLAGS = /LFLAGS = -lpython2.5 /g" Qt/Makefile
-%else
-    %{__sed} -i "s/^LFLAGS = /LFLAGS = -lpython2.6 /g" Qt/Makefile
-%endif
+    sed -i "s,^LFLAGS = ,LFLAGS = $(python-config --libs) ,g" Qt/Makefile
 
 %make
 
 %install
-%{__rm} -rf %{buildroot}
-%{makeinstall_std} INSTALL_ROOT=%{buildroot}
+rm -rf %{buildroot}
+%makeinstall_std INSTALL_ROOT=%{buildroot}
 
 %clean
-%{__rm} -rf %{buildroot}
+rm -rf %{buildroot}
+
+
