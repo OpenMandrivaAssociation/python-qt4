@@ -13,7 +13,6 @@ BuildRequires: qt4-devel >= 3:4.5.1
 BuildRequires: dbus-python
 BuildRequires: dbus-devel
 BuildRequires: python-sip >= 1:4.8.1
-BuildRequires: qscintilla-qt4-devel
 BuildRequires: sed
 %py_requires -d
 Provides: PyQt4 = %version-%release
