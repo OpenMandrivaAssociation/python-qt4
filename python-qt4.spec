@@ -13,7 +13,7 @@ BuildRoot: %_tmppath/%name-%version-%release-root
 BuildRequires: qt4-devel >= 3:4.5.1
 BuildRequires: dbus-python
 BuildRequires: dbus-devel
-BuildRequires: python-sip >= 1:4.8.1
+BuildRequires: python-sip >= 1:4.9
 BuildRequires: sed
 %py_requires -d
 Provides: PyQt4 = %version-%release
