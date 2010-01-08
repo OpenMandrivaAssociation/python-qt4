@@ -1,10 +1,11 @@
+%define snapshot 20091231
 Name: python-qt4
 Summary: Set of Python bindings for Trolltech's Qt application framework
-Version: 4.6.2
-Release: %mkrel 1
+Version: 4.7
+Release: %mkrel 0.%snapshot.1
 Group: Development/KDE and Qt
 URL: http://www.riverbankcomputing.co.uk/software/pyqt/intro
-Source0: http://www.riverbankcomputing.co.uk/static/Downloads/PyQt4/PyQt-x11-gpl-%{version}.tar.gz
+Source0: http://www.riverbankcomputing.co.uk/static/Downloads/PyQt4/PyQt-x11-gpl-%version-snapshot-%snapshot.tar.gz
 Patch0: PyQt-x11-gpl-4.4.4-test64.patch
 Patch1: PyQt-x11-gpl-4.4.4-fix-str-fmt.patch
 Patch2: 03_qreal_float_support.dpatch
@@ -290,7 +291,7 @@ PyQt 4 devel utilities
 #------------------------------------------------------------
 
 %prep
-%setup -q -n PyQt-x11-gpl-%{version}
+%setup -q -n PyQt-x11-gpl-%version-snapshot-%snapshot
 %patch0 -p1 -b .64
 #%patch1 -p0 -b .str
 %patch2 -p1 -b .real
