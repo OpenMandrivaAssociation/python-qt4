@@ -1,11 +1,10 @@
-%define snapshot 20091231
 Name: python-qt4
 Summary: Set of Python bindings for Trolltech's Qt application framework
 Version: 4.7
-Release: %mkrel 0.%snapshot.2
+Release: %mkrel 1
 Group: Development/KDE and Qt
 URL: http://www.riverbankcomputing.co.uk/software/pyqt/intro
-Source0: http://www.riverbankcomputing.co.uk/static/Downloads/PyQt4/PyQt-x11-gpl-%version-snapshot-%snapshot.tar.gz
+Source0: http://www.riverbankcomputing.co.uk/static/Downloads/PyQt4/PyQt-x11-gpl-%version.tar.gz
 Patch0: PyQt-x11-gpl-4.4.4-test64.patch
 Patch1: PyQt-x11-gpl-4.4.4-fix-str-fmt.patch
 Patch2: 03_qreal_float_support.dpatch
@@ -14,11 +13,11 @@ BuildRoot: %_tmppath/%name-%version-%release-root
 BuildRequires: qt4-devel >= 3:4.5.1
 BuildRequires: dbus-python
 BuildRequires: dbus-devel
-BuildRequires: python-sip >= 1:4.9
+BuildRequires: python-sip >= 1:4.10
 BuildRequires: sed
 %py_requires -d
 Provides: PyQt4 = %version-%release
-Requires: python-sip >= 1:4.7.8
+Requires: python-sip = 1:4.10
 Requires: %{name}-core = %{version}
 Requires: %{name}-assistant = %{version}
 Requires: %{name}-designer = %{version}
@@ -291,7 +290,7 @@ PyQt 4 devel utilities
 #------------------------------------------------------------
 
 %prep
-%setup -q -n PyQt-x11-gpl-%version-snapshot-%snapshot
+%setup -q -n PyQt-x11-gpl-%version
 %patch0 -p1 -b .64
 #%patch1 -p0 -b .str
 %patch2 -p1 -b .real
