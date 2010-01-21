@@ -22,6 +22,7 @@ Requires: %{name}-core = %{version}
 Requires: %{name}-assistant = %{version}
 Requires: %{name}-designer = %{version}
 Requires: %{name}-gui = %{version}
+Requires: %{name}-multimedia = %{version}
 Requires: %{name}-network = %{version}
 Requires: %{name}-opengl = %{version}
 Requires: %{name}-script = %{version}
@@ -133,6 +134,21 @@ PyQt 4 opengl
 %defattr(-,root,root)
 %py_platsitedir/PyQt4/QtOpenGL.so
 %_datadir/sip/PyQt4/QtOpenGL
+
+#------------------------------------------------------------
+
+%package multimedia
+Summary: PyQt 4 multimedia
+Group: Development/KDE and Qt
+Requires: %{name}-core = %{version}
+
+%description multimedia
+PyQt 4 multimedia
+
+%files multimedia
+%defattr(-,root,root)
+%py_platsitedir/PyQt4/QtMultimedia.so
+%_datadir/sip/PyQt4/QtMultimedia
 
 #------------------------------------------------------------
 
@@ -310,7 +326,7 @@ python ./configure.py \
 # libs to link. We're explicitely this unecessary links
 # Using same approach to add missin libpython linh
 
-for name in dbus QtCore QtGui QtNetwork QtOpenGL QtWebKit QtScript QtSvg QtSql QtAssistant QtDesigner QtTest QtXml QtXmlPatterns QtHelp QtScriptTools; do
+for name in dbus QtCore QtGui QtMultimedia QtNetwork QtOpenGL QtWebKit QtScript QtSvg QtSql QtAssistant QtDesigner QtTest QtXml QtXmlPatterns QtHelp QtScriptTools; do
     sed -i "s,-lXext -lX11,$(python-config --libs) ,g" ${name}/Makefile
 done
     sed -i "s,^LFLAGS = ,LFLAGS = $(python-config --libs) ,g" Qt/Makefile
