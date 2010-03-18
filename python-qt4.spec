@@ -15,6 +15,7 @@ BuildRequires: dbus-python
 BuildRequires: dbus-devel
 BuildRequires: python-sip >= 1:4.10
 BuildRequires: sed
+BuildRequires: phonon-devel
 %py_requires -d
 Provides: PyQt4 = %version-%release
 Requires: python-sip >= 1:4.10
