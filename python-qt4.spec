@@ -8,6 +8,7 @@ Source0: http://www.riverbankcomputing.co.uk/static/Downloads/PyQt4/PyQt-x11-gpl
 Patch0: PyQt-x11-gpl-4.4.4-test64.patch
 Patch1: PyQt-x11-gpl-4.4.4-fix-str-fmt.patch
 Patch2: 03_qreal_float_support.dpatch
+Patch3: PyQt-x11-gpl-4.7.2-fix-build.patch
 License: GPLv2+
 BuildRoot: %_tmppath/%name-%version-%release-root
 BuildRequires: qt4-devel >= 3:4.5.1
@@ -311,6 +312,7 @@ PyQt 4 devel utilities
 %patch0 -p1 -b .64
 #%patch1 -p0 -b .str
 %patch2 -p1 -b .real
+%patch3 -p0
 
 %build
 export QTDIR=%qt4dir
