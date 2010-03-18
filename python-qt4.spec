@@ -17,7 +17,7 @@ BuildRequires: python-sip >= 1:4.10
 BuildRequires: sed
 %py_requires -d
 Provides: PyQt4 = %version-%release
-Requires: python-sip = 1:4.10
+Requires: python-sip >= 1:4.10
 Requires: %{name}-core = %{version}
 Requires: %{name}-assistant = %{version}
 Requires: %{name}-designer = %{version}
