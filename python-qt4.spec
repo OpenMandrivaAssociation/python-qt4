@@ -286,6 +286,23 @@ PyQt 4 designer
 %py_platsitedir/PyQt4/QtDesigner.so
 %_datadir/sip/PyQt4/QtDesigner
 
+
+#------------------------------------------------------------
+
+%package phonon
+Summary: PyQt 4 phonon
+Group: Development/KDE and Qt
+Requires: %{name}-core = %{version}
+
+%description phonon
+PyQt 4 phonon
+
+%files phonon
+%defattr(-,root,root)
+%py_platsitedir/PyQt4/phonon.so
+%_datadir/sip/PyQt4/phonon
+
+
 #------------------------------------------------------------
 
 %package devel
