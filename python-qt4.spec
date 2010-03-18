@@ -8,7 +8,6 @@ Source0: http://www.riverbankcomputing.co.uk/static/Downloads/PyQt4/PyQt-x11-gpl
 Patch0: PyQt-x11-gpl-4.4.4-test64.patch
 Patch1: PyQt-x11-gpl-4.4.4-fix-str-fmt.patch
 Patch2: 03_qreal_float_support.dpatch
-Patch3: PyQt-x11-gpl-4.7.2-fix-build.patch
 License: GPLv2+
 BuildRoot: %_tmppath/%name-%version-%release-root
 BuildRequires: qt4-devel >= 3:4.5.1
@@ -312,7 +311,6 @@ PyQt 4 devel utilities
 %patch0 -p1 -b .64
 #%patch1 -p0 -b .str
 %patch2 -p1 -b .real
-%patch3 -p0
 
 %build
 export QTDIR=%qt4dir
@@ -329,11 +327,11 @@ python ./configure.py \
 # libs to link. We're explicitely this unecessary links
 # Using same approach to add missin libpython linh
 
-for name in dbus QtCore QtGui QtMultimedia QtNetwork QtOpenGL QtWebKit QtScript QtSvg QtSql QtAssistant QtDesigner QtTest QtXml QtXmlPatterns QtHelp QtScriptTools; do
+for name in dbus phonon QtCore QtGui QtMultimedia QtNetwork QtOpenGL QtWebKit QtScript QtSvg QtSql QtAssistant QtDesigner QtTest QtXml QtXmlPatterns QtHelp QtScriptTools; do
     sed -i "s,-lXext -lX11,$(python-config --libs) ,g" ${name}/Makefile
 done
-    sed -i "s,^LFLAGS = ,LFLAGS = $(python-config --libs) ,g" Qt/Makefile
-
+sed -i "s,^LFLAGS = ,LFLAGS = $(python-config --libs) ,g" Qt/Makefile
+sed -i "s,/usr/lib/qt4/include/phonon,/usr/include/phonon,g" phonon/Makefile
 %make
 
 %install
