@@ -347,7 +347,7 @@ python ./configure.py \
 for name in dbus phonon QtCore QtGui QtMultimedia QtNetwork QtOpenGL QtWebKit QtScript QtSvg QtSql QtAssistant QtDesigner QtTest QtXml QtXmlPatterns QtHelp QtScriptTools; do
     sed -i "s,-lXext -lX11,$(python-config --libs) ,g" ${name}/Makefile
 done
-sed -i "s,^LFLAGS = ,LFLAGS = $(python-config --libs) ,g" Qt/Makefile
+sed -i "s,^LIBS = ,LIBS = $(python-config --libs) ,g" Qt/Makefile
 sed -i "s,/usr/lib/qt4/include/phonon,/usr/include/phonon,g" phonon/Makefile
 %make
 
