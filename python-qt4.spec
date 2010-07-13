@@ -1,7 +1,7 @@
 Name: python-qt4
 Summary: Set of Python bindings for Trolltech's Qt application framework
-Version: 4.7.3
-Release: %mkrel 2
+Version: 4.7.4
+Release: %mkrel 1
 Group: Development/KDE and Qt
 URL: http://www.riverbankcomputing.co.uk/software/pyqt/intro
 Source0: http://www.riverbankcomputing.co.uk/static/Downloads/PyQt4/PyQt-x11-gpl-%version.tar.gz
@@ -13,12 +13,12 @@ BuildRoot: %_tmppath/%name-%version-%release-root
 BuildRequires: qt4-devel >= 3:4.5.1
 BuildRequires: dbus-python
 BuildRequires: dbus-devel
-BuildRequires: python-sip >= 1:4.10
+BuildRequires: python-sip >= 1:4.10.3
 BuildRequires: sed
 BuildRequires: phonon-devel
 %py_requires -d
 Provides: PyQt4 = %version-%release
-Requires: python-sip >= 1:4.10
+Requires: python-sip >= 1:4.10.3
 Requires: %{name}-core = %{version}
 Requires: %{name}-assistant = %{version}
 Requires: %{name}-designer = %{version}
