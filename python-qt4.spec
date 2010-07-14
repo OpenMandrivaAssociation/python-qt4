@@ -344,10 +344,9 @@ python ./configure.py \
 # libs to link. We're explicitely this unecessary links
 # Using same approach to add missin libpython linh
 
-for name in dbus phonon QtCore QtGui QtMultimedia QtNetwork QtOpenGL QtWebKit QtScript QtSvg QtSql QtAssistant QtDesigner QtTest QtXml QtXmlPatterns QtHelp QtScriptTools; do
-    sed -i "s,-lXext -lX11,$(python-config --libs) ,g" ${name}/Makefile
+for name in Qt dbus phonon QtCore QtGui QtMultimedia QtNetwork QtOpenGL QtWebKit QtScript QtSvg QtSql QtAssistant QtDesigner QtTest QtXml QtXmlPatterns QtHelp QtScriptTools; do
+    sed -i "s,^LIBS = ,LIBS = $(python-config --libs) ,g" ${name}/Makefile
 done
-sed -i "s,^LIBS = ,LIBS = $(python-config --libs) ,g" Qt/Makefile
 sed -i "s,/usr/lib/qt4/include/phonon,/usr/include/phonon,g" phonon/Makefile
 %make
 
