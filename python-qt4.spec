@@ -1,7 +1,7 @@
 Name: python-qt4
 Summary: Set of Python bindings for Trolltech's Qt application framework
 Version: 4.7.4
-Release: %mkrel 1
+Release: %mkrel 2
 Group: Development/KDE and Qt
 URL: http://www.riverbankcomputing.co.uk/software/pyqt/intro
 Source0: http://www.riverbankcomputing.co.uk/static/Downloads/PyQt4/PyQt-x11-gpl-%version.tar.gz
@@ -20,7 +20,7 @@ BuildRequires: phonon-devel
 Provides: PyQt4 = %version-%release
 Requires: python-sip >= 1:4.10.3
 Requires: %{name}-core = %{version}
-Requires: %{name}-assistant = %{version}
+#Requires: %{name}-assistant = %{version}
 Requires: %{name}-designer = %{version}
 Requires: %{name}-gui = %{version}
 Requires: %{name}-multimedia = %{version}
@@ -63,6 +63,7 @@ PyQt 4 core
 
 #------------------------------------------------------------
 
+%if 0
 %package assistant
 Summary: PyQt 4 assistant
 Group: Development/KDE and Qt
@@ -75,6 +76,7 @@ PyQt 4 assistant
 %defattr(-,root,root)
 %py_platsitedir/PyQt4/QtAssistant.so
 %_datadir/sip/PyQt4/QtAssistant
+%endif
 
 #------------------------------------------------------------
 
@@ -344,7 +346,7 @@ python ./configure.py \
 # libs to link. We're explicitely this unecessary links
 # Using same approach to add missin libpython linh
 
-for name in Qt dbus phonon QtCore QtGui QtMultimedia QtNetwork QtOpenGL QtWebKit QtScript QtSvg QtSql QtAssistant QtDesigner QtTest QtXml QtXmlPatterns QtHelp QtScriptTools; do
+for name in Qt dbus phonon QtCore QtGui QtMultimedia QtNetwork QtOpenGL QtWebKit QtScript QtSvg QtSql QtDesigner QtTest QtXml QtXmlPatterns QtHelp QtScriptTools; do
     sed -i "s,^LIBS = ,LIBS = $(python-config --libs) ,g" ${name}/Makefile
 done
 sed -i "s,/usr/lib/qt4/include/phonon,/usr/include/phonon,g" phonon/Makefile
@@ -356,5 +358,3 @@ rm -rf %{buildroot}
 
 %clean
 rm -rf %{buildroot}
-
-
