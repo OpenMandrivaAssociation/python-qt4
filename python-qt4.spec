@@ -309,7 +309,7 @@ PyQt 4 phonon
 %package devel
 Summary: PyQt 4 devel
 Group: Development/KDE and Qt
-Requires: %{name}
+Requires: %{name} = %{version}
 Requires: qt4-designer
 
 %description devel
