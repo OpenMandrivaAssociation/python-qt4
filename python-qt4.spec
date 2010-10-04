@@ -1,6 +1,6 @@
 Name: python-qt4
 Summary: Set of Python bindings for Trolltech's Qt application framework
-Version: 4.7.5
+Version: 4.7.7
 Release: %mkrel 1
 Group: Development/KDE and Qt
 URL: http://www.riverbankcomputing.co.uk/software/pyqt/intro
