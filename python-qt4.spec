@@ -1,20 +1,19 @@
 Name: python-qt4
 Summary: Set of Python bindings for Trolltech's Qt application framework
-Version: 4.7.7
-Release: %mkrel 2
+Version: 4.8
+Release: %mkrel 1
 Group: Development/KDE and Qt
 URL: http://www.riverbankcomputing.co.uk/software/pyqt/intro
 Source0: http://www.riverbankcomputing.co.uk/static/Downloads/PyQt4/PyQt-x11-gpl-%version.tar.gz
 Patch0: PyQt-x11-gpl-4.4.4-test64.patch
 Patch2: 03_qreal_float_support.dpatch
-Patch3: PyQt-x11-gpl-4.7.7-qglobal.patch
 License: GPLv2+
 BuildRoot: %_tmppath/%name-%version-%release-root
 BuildRequires: qt4-devel >= 3:4.5.1
 BuildRequires: qt-assistant-adp-devel
 BuildRequires: dbus-python
 BuildRequires: dbus-devel
-BuildRequires: python-sip >= 1:4.10.3
+BuildRequires: python-sip >= 1:4.11.2
 BuildRequires: sed
 BuildRequires: phonon-devel
 %py_requires -d
@@ -22,6 +21,7 @@ Provides: PyQt4 = %version-%release
 Requires: python-sip >= 1:4.10.3
 Requires: %{name}-core = %{version}
 #Requires: %{name}-assistant = %{version}
+Requires: %{name}-declarative = %{version}
 Requires: %{name}-designer = %{version}
 Requires: %{name}-gui = %{version}
 Requires: %{name}-multimedia = %{version}
@@ -61,6 +61,21 @@ PyQt 4 core
 %_datadir/sip/PyQt4/Qt
 %_datadir/sip/PyQt4/QtCore
 %qt4dir/qsci/api/python/PyQt4.api
+
+#------------------------------------------------------------
+
+%package declarative
+Summary: PyQt 4 declarative
+Group: Development/KDE and Qt
+Requires: %{name}-core = %{version}
+
+%description declarative
+PyQt 4 declarative
+
+%files declarative
+%defattr(-,root,root)
+%py_platsitedir/PyQt4/QtDeclarative.so
+%_datadir/sip/PyQt4/QtDeclarative
 
 #------------------------------------------------------------
 
@@ -328,7 +343,6 @@ PyQt 4 devel utilities
 %setup -q -n PyQt-x11-gpl-%version
 %patch0 -p1 -b .64
 %patch2 -p1 -b .real
-%patch3 -p0 -b .git
 
 %build
 export QTDIR=%qt4dir
@@ -345,7 +359,7 @@ python ./configure.py \
 # libs to link. We're explicitely this unecessary links
 # Using same approach to add missin libpython linh
 
-for name in Qt dbus phonon QtAssistant QtCore QtGui QtMultimedia QtNetwork QtOpenGL QtWebKit QtScript QtSvg QtSql QtDesigner QtTest QtXml QtXmlPatterns QtHelp QtScriptTools; do
+for name in Qt dbus phonon QtAssistant QtCore QtDeclarative QtGui QtMultimedia QtNetwork QtOpenGL QtWebKit QtScript QtSvg QtSql QtDesigner QtTest QtXml QtXmlPatterns QtHelp QtScriptTools; do
     sed -i "s,^LIBS = ,LIBS = $(python-config --libs) ,g" ${name}/Makefile
 done
 sed -i "s,/usr/lib/qt4/include/phonon,/usr/include/phonon,g" phonon/Makefile
