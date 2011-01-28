@@ -1,11 +1,11 @@
 Name: python-qt4
 Summary: Set of Python bindings for Trolltech's Qt application framework
-Version: 4.8.2
+Version: 4.8.3
 Release: %mkrel 1
 Group: Development/KDE and Qt
 URL: http://www.riverbankcomputing.co.uk/software/pyqt/intro
 Source0: http://www.riverbankcomputing.co.uk/static/Downloads/PyQt4/PyQt-x11-gpl-%version.tar.gz
-Patch0: PyQt-x11-gpl-4.4.4-test64.patch
+Patch0: PyQt-x11-gpl-4.8.3-test64.patch
 Patch2: 03_qreal_float_support.dpatch
 License: GPLv2+
 BuildRoot: %_tmppath/%name-%version-%release-root
@@ -13,12 +13,12 @@ BuildRequires: qt4-devel >= 3:4.5.1
 BuildRequires: qt-assistant-adp-devel
 BuildRequires: dbus-python
 BuildRequires: dbus-devel
-BuildRequires: python-sip >= 1:4.12
+BuildRequires: python-sip >= 1:4.12.1
 BuildRequires: sed
 BuildRequires: phonon-devel
 BuildRequires: python-devel
 Provides: PyQt4 = %version-%release
-Requires: python-sip >= 1:4.12
+Requires: python-sip >= 1:4.12.1
 Requires: %{name}-core = %{version}
 #Requires: %{name}-assistant = %{version}
 Requires: %{name}-declarative = %{version}
@@ -340,7 +340,7 @@ PyQt 4 devel utilities
 #------------------------------------------------------------
 
 %prep
-%setup -q -n PyQt-x11-gpl-%version
+%setup -qn PyQt-x11-gpl-%version
 %patch0 -p1 -b .64
 %patch2 -p1 -b .real
 
