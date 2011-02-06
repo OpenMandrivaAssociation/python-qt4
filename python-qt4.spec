@@ -1,7 +1,7 @@
 Name: python-qt4
 Summary: Set of Python bindings for Trolltech's Qt application framework
 Version: 4.8.3
-Release: %mkrel 1
+Release: %mkrel 22
 Group: Development/KDE and Qt
 URL: http://www.riverbankcomputing.co.uk/software/pyqt/intro
 Source0: http://www.riverbankcomputing.co.uk/static/Downloads/PyQt4/PyQt-x11-gpl-%version.tar.gz
@@ -24,10 +24,13 @@ Requires: %{name}-core = %{version}
 Requires: %{name}-declarative = %{version}
 Requires: %{name}-designer = %{version}
 Requires: %{name}-gui = %{version}
+Requires: %{name}-help = %{version}
 Requires: %{name}-multimedia = %{version}
 Requires: %{name}-network = %{version}
 Requires: %{name}-opengl = %{version}
+Requires: %{name}-phonon = %{version}
 Requires: %{name}-script = %{version}
+Requires: %{name}-scripttools = %{version}
 Requires: %{name}-sql = %{version}
 Requires: %{name}-svg = %{version}
 Requires: %{name}-test = %{version}
