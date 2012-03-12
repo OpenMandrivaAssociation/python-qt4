@@ -378,7 +378,7 @@ python ./configure.py \
 # Using same approach to add missin libpython linh
 
 for name in Qt dbus phonon QtAssistant QtCore QtDBus QtDeclarative QtGui QtMultimedia QtNetwork QtOpenGL QtWebKit QtScript QtSvg QtSql QtDesigner QtTest QtXml QtXmlPatterns QtHelp QtScriptTools; do
-    if [ -d $name ]; then
+    if [ -e ${name}/Makefile ]; then
         sed -i "s,^LIBS = ,LIBS = $(python-config --libs) ,g" ${name}/Makefile
 	fi
 done
