@@ -58,7 +58,9 @@ PyQt 4 core
 %py_platsitedir/PyQt4/uic
 %py_platsitedir/PyQt4/__init__.py
 %py_platsitedir/PyQt4/pyqtconfig.py
+%if %mdkversion < 201200
 %py_puresitedir/dbus/*
+%endif
 %py_platsitedir/PyQt4/Qt.so
 %py_platsitedir/PyQt4/QtCore.so
 %_datadir/sip/PyQt4/Qt
@@ -68,7 +70,7 @@ PyQt 4 core
 #------------------------------------------------------------
 
 %package dbus
-Summary: PyQt 5 dbus
+Summary: PyQt 4 dbus
 Group: Development/KDE and Qt
 Requires: %{name}-core = %{version}
 
