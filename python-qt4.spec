@@ -370,7 +370,7 @@ export CXXFLAGS='%{optflags} -fPIC'
 python ./configure.py \
 	--qsci-api \
 	--confirm-license \
-	--dbus /usr/include/dbus-1.0
+	-s /usr/include/dbus-1.0
 	
 # Some modules not requires X libraries
 # Python sip not diferentiate qt modules and always add a X set of 
