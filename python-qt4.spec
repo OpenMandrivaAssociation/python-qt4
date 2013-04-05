@@ -1,7 +1,7 @@
 Name:		python-qt4
 Summary:	Set of Python bindings for Trolltech's Qt application framework
 Version:	4.9.6
-Release:	1
+Release:	2
 Group:		Development/KDE and Qt
 URL:		http://www.riverbankcomputing.co.uk/software/pyqt/intro
 Source0:	http://www.riverbankcomputing.co.uk/static/Downloads/PyQt4/PyQt-x11-gpl-%{version}.tar.gz
@@ -35,6 +35,8 @@ Requires:	%{name}-test = %{version}
 Requires:	%{name}-webkit = %{version}
 Requires:	%{name}-xml = %{version}
 Requires:	%{name}-xmlpatterns = %{version}
+
+%define debug_package %{nil}
 
 %description
 PyQt is a set of Python bindings for Trolltech's Qt application framework
