@@ -1,3 +1,4 @@
+%define debug_package %{nil}
 Name:		python-qt4
 Summary:	Set of Python bindings for Trolltech's Qt application framework
 Version:	4.9.6
