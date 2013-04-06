@@ -10,7 +10,7 @@ Patch2:		03_qreal_float_support.dpatch
 License:	GPLv2+
 BuildRequires:	qt4-devel >= 3:4.5.1
 BuildRequires:	qt-assistant-adp-devel
-BuildRequires:	dbus-python
+BuildRequires:	pkgconfig(dbus-python)
 BuildRequires:	dbus-devel
 BuildRequires:	python-sip >= 1:4.12.2
 BuildRequires:	sed
