@@ -9,6 +9,7 @@ Source0:	http://www.riverbankcomputing.co.uk/static/Downloads/PyQt4/PyQt-x11-gpl
 Patch2:		03_qreal_float_support.dpatch
 License:	GPLv2+
 BuildRequires:	qt4-devel >= 3:4.5.1
+BuildRequires:	pkgconfig(QtWebKit)
 BuildRequires:	qt-assistant-adp-devel
 BuildRequires:	pkgconfig(dbus-python)
 BuildRequires:	python-dbus
