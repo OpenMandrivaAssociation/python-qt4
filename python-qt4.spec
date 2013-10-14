@@ -2,7 +2,7 @@
 Name:		python-qt4
 Summary:	Set of Python bindings for Trolltech's Qt application framework
 Version:	4.9.6
-Release:	2
+Release:	3
 Group:		Development/KDE and Qt
 URL:		http://www.riverbankcomputing.co.uk/software/pyqt/intro
 Source0:	http://www.riverbankcomputing.co.uk/static/Downloads/PyQt4/PyQt-x11-gpl-%{version}.tar.gz
@@ -42,7 +42,7 @@ Requires:	%{name}-xmlpatterns = %{version}
 %define debug_package %{nil}
 
 %description
-PyQt is a set of Python bindings for Trolltech's Qt application framework
+PyQt is a set of Python bindings for Trolltech's Qt application framework.
 
 %files
 
@@ -53,7 +53,7 @@ Summary:	PyQt 4 core
 Group:		Development/KDE and Qt
 
 %description core
-PyQt 4 core
+PyQt 4 core.
 
 %files core
 %dir %{py_platsitedir}/PyQt4
@@ -75,7 +75,7 @@ Group:		Development/KDE and Qt
 Requires:	%{name}-core = %{version}
 
 %description dbus
-PyQt 4 dbus
+PyQt 4 dbus.
 
 %files dbus
 %{py_platsitedir}/PyQt4/QtDBus.so
@@ -89,7 +89,7 @@ Group:		Development/KDE and Qt
 Requires:	%{name}-core = %{version}
 
 %description declarative
-PyQt 4 declarative
+PyQt 4 declarative.
 
 %files declarative
 %{py_platsitedir}/PyQt4/QtDeclarative.so
@@ -103,7 +103,7 @@ Group:		Development/KDE and Qt
 Requires:	%{name}-core = %{version}
 
 %description assistant
-PyQt 4 assistant
+PyQt 4 assistant.
 
 %files assistant
 %{py_platsitedir}/PyQt4/QtAssistant.so
@@ -117,7 +117,7 @@ Group:		Development/KDE and Qt
 Requires:	%{name}-core = %{version}
 
 %description gui
-PyQt 4 gui
+PyQt 4 gui.
 
 %files gui
 %{py_platsitedir}/PyQt4/QtGui.so
@@ -131,7 +131,7 @@ Group:		Development/KDE and Qt
 Requires:	%{name}-core = %{version}
 
 %description network
-PyQt 4 network
+PyQt 4 network.
 
 %files network
 %{py_platsitedir}/PyQt4/QtNetwork.so
@@ -145,7 +145,7 @@ Group:		Development/KDE and Qt
 Requires:	%{name}-core = %{version}
 
 %description help
-PyQt 4 help
+PyQt 4 help.
 
 %files help
 %{py_platsitedir}/PyQt4/QtHelp.so
@@ -159,7 +159,7 @@ Group:		Development/KDE and Qt
 Requires:	%{name}-core = %{version}
 
 %description opengl
-PyQt 4 opengl
+PyQt 4 opengl.
 
 %files opengl
 %{py_platsitedir}/PyQt4/QtOpenGL.so
@@ -173,7 +173,7 @@ Group:		Development/KDE and Qt
 Requires:	%{name}-core = %{version}
 
 %description multimedia
-PyQt 4 multimedia
+PyQt 4 multimedia.
 
 %files multimedia
 %{py_platsitedir}/PyQt4/QtMultimedia.so
@@ -187,7 +187,7 @@ Group:		Development/KDE and Qt
 Requires:	%{name}-core = %{version}
 
 %description script
-PyQt 4 script
+PyQt 4 script.
 
 %files script
 %{py_platsitedir}/PyQt4/QtScript.so
@@ -201,7 +201,7 @@ Group:		Development/KDE and Qt
 Requires:	%{name}-core = %{version}
 
 %description sql
-PyQt 4 sql
+PyQt 4 sql.
 
 %files sql
 %{py_platsitedir}/PyQt4/QtSql.so
@@ -215,7 +215,7 @@ Group:		Development/KDE and Qt
 Requires:	%{name}-core = %{version}
 
 %description svg
-PyQt 4 svg
+PyQt 4 svg.
 
 %files svg
 %{py_platsitedir}/PyQt4/QtSvg.so
@@ -229,7 +229,7 @@ Group:		Development/KDE and Qt
 Requires:	%{name}-core = %{version}
 
 %description test
-PyQt 4 test
+PyQt 4 test.
 
 %files test
 %{py_platsitedir}/PyQt4/QtTest.so
@@ -243,7 +243,7 @@ Group:		Development/KDE and Qt
 Requires:	%{name}-core = %{version}
 
 %description webkit
-PyQt 4 webkit
+PyQt 4 webkit.
 
 %files webkit
 %{py_platsitedir}/PyQt4/QtWebKit.so
@@ -257,7 +257,7 @@ Group:		Development/KDE and Qt
 Requires:	%{name}-core = %{version}
 
 %description xml
-PyQt 4 xml
+PyQt 4 xml.
 
 %files xml
 %{py_platsitedir}/PyQt4/QtXml.so
@@ -271,7 +271,7 @@ Group:		Development/KDE and Qt
 Requires:	%{name}-core = %{version}
 
 %description xmlpatterns
-PyQt 4 xmlpatterns
+PyQt 4 xmlpatterns.
 
 %files xmlpatterns
 %{py_platsitedir}/PyQt4/QtXmlPatterns.so
@@ -285,7 +285,7 @@ Group:		Development/KDE and Qt
 Requires:	%{name}-core = %{version}
 
 %description scripttools
-PyQt 4 scripttools
+PyQt 4 scripttools.
 
 %files scripttools
 %{py_platsitedir}/PyQt4/QtScriptTools.so
@@ -299,7 +299,7 @@ Group:		Development/KDE and Qt
 Requires:	%{name}-core = %{version}
 
 %description designer
-PyQt 4 designer
+PyQt 4 designer.
 
 %files designer
 %{py_platsitedir}/PyQt4/QtDesigner.so
@@ -313,7 +313,7 @@ Group:		Development/KDE and Qt
 Requires:	%{name}-core = %{version}
 
 %description phonon
-PyQt 4 phonon
+PyQt 4 phonon.
 
 %files phonon
 %{py_platsitedir}/PyQt4/phonon.so
@@ -328,7 +328,7 @@ Requires:	%{name} = %{version}
 Requires:	qt4-designer
 
 %description devel
-PyQt 4 devel utilities
+PyQt 4 devel utilities.
 
 %files devel
 %{_bindir}/pyuic4
