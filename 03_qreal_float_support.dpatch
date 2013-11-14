@@ -1,3 +1,16 @@
+--- PyQt-x11-gpl-4.7.2/configure.py.real	2010-03-18 02:10:13.000000000 +0100
++++ PyQt-x11-gpl-4.7.2/configure.py	2010-03-18 02:11:55.000000000 +0100
+@@ -1916,8 +1916,9 @@
+     out << "PyQt_NoOpenGLES\\n";
+ #endif
+ 
+-    if (sizeof (qreal) != sizeof (double))
++#if defined(QT_NO_FPU) || defined(QT_ARCH_ARM) || defined(QT_ARCH_WINDOWSCE)
+         out << "PyQt_qreal_double\\n";
++#endif
+ 
+     return 0;
+ }
 --- PyQt-x11-gpl-4.7.2/sip/QtCore/qlist.sip.real	2010-03-17 19:29:26.000000000 +0100
 +++ PyQt-x11-gpl-4.7.2/sip/QtCore/qlist.sip	2010-03-18 02:10:13.000000000 +0100
 @@ -749,3 +749,227 @@
