@@ -6,6 +6,7 @@ Release:	1
 Group:		Development/KDE and Qt
 URL:		http://www.riverbankcomputing.co.uk/software/pyqt/intro
 Source0:	http://garr.dl.sourceforge.net/project/pyqt/PyQt4/PyQt-%{version}/PyQt-x11-gpl-%{version}.tar.gz
+Patch0:		phonon_cfgtest.diff
 Patch2:		03_qreal_float_support.dpatch
 License:	GPLv2+
 BuildRequires:	qt4-devel >= 3:4.5.1
@@ -340,6 +341,7 @@ PyQt 4 devel utilities.
 
 %prep
 %setup -qn PyQt-x11-gpl-%{version}
+%patch0 -p1 -b .phonon
 %patch2 -p1 -b .real
 
 %build

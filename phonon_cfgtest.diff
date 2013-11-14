@@ -1,0 +1,16 @@
+Description: fix detection of Phonon ≥ 4.7
+Author: Dmitry Shachnev <mitya57@gmail.com>
+Forwarded: no
+Last-Update: 2013-11-10
+
+--- a/configure.py
++++ b/configure.py
+@@ -1256,6 +1256,8 @@
+     qt = [mname]
+     if mname in ("QtAssistant", "QtHelp", "QtOpenGL", "QtWebKit"):
+         qt.append("QtCore")
++    if mname == "phonon":
++        qt.append("QtGui")
+ 
+     makefile = sipconfig.ProgramMakefile(sipcfg, console=1, qt=qt, warnings=0,
+             opengl=opengl, debug=opts.debug, arch=sipcfg.arch,
