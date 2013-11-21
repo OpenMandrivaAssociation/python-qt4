@@ -1,24 +1,24 @@
 %define debug_package %{nil}
-Name:		python-qt4
+
 Summary:	Set of Python bindings for Trolltech's Qt application framework
+Name:		python-qt4
 Version:	4.10.3
 Release:	1
 Group:		Development/KDE and Qt
-URL:		http://www.riverbankcomputing.co.uk/software/pyqt/intro
+License:	GPLv2+
+Url:		http://www.riverbankcomputing.co.uk/software/pyqt/intro
 Source0:	http://garr.dl.sourceforge.net/project/pyqt/PyQt4/PyQt-%{version}/PyQt-x11-gpl-%{version}.tar.gz
 Patch0:		phonon_cfgtest.diff
 Patch2:		03_qreal_float_support.dpatch
-License:	GPLv2+
-BuildRequires:	qt4-devel >= 3:4.5.1
-BuildRequires:	pkgconfig(QtWebKit)
-BuildRequires:	qt-assistant-adp-devel
-BuildRequires:	pkgconfig(dbus-python)
-BuildRequires:	python-dbus
-BuildRequires:	dbus-devel
 BuildRequires:	python-sip >= 1:4.12.2
 BuildRequires:	sed
-BuildRequires:	phonon-devel
-BuildRequires:	python-devel
+BuildRequires:	qt4-devel >= 3:4.5.1
+BuildRequires:	pkgconfig(dbus-1)
+BuildRequires:	pkgconfig(dbus-python)
+BuildRequires:	pkgconfig(phonon)
+BuildRequires:	pkgconfig(python)
+BuildRequires:	pkgconfig(QtAssistantClient)
+BuildRequires:	pkgconfig(QtWebKit)
 Provides:	PyQt4 = %{version}-%{release}
 Requires:	python-sip >= 1:4.12.2
 Requires:	%{name}-core = %{version}
@@ -39,8 +39,6 @@ Requires:	%{name}-test = %{version}
 Requires:	%{name}-webkit = %{version}
 Requires:	%{name}-xml = %{version}
 Requires:	%{name}-xmlpatterns = %{version}
-
-%define debug_package %{nil}
 
 %description
 PyQt is a set of Python bindings for Trolltech's Qt application framework.
