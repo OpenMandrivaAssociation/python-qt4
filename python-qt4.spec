@@ -3,7 +3,7 @@
 Summary:	Set of Python bindings for Trolltech's Qt application framework
 Name:		python-qt4
 Version:	4.10.4
-Release:	1
+Release:	3
 Group:		Development/KDE and Qt
 License:	GPLv2+
 Url:		http://www.riverbankcomputing.co.uk/software/pyqt/intro
@@ -19,7 +19,7 @@ BuildRequires:	pkgconfig(python)
 BuildRequires:	pkgconfig(QtAssistantClient)
 BuildRequires:	pkgconfig(QtWebKit)
 Provides:	PyQt4 = %{version}-%{release}
-Requires:	python-sip >= 1:4.12.2
+Requires:	sip-api(%{sip_api_major}) = %{sip_api}
 Requires:	%{name}-core = %{version}
 Requires:	%{name}-dbus = %{version}
 Requires:	%{name}-declarative = %{version}
