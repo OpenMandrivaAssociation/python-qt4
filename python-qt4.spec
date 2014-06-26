@@ -19,7 +19,7 @@ BuildRequires:	pkgconfig(python)
 BuildRequires:	pkgconfig(QtAssistantClient)
 BuildRequires:	pkgconfig(QtWebKit)
 Provides:	PyQt4 = %{version}-%{release}
-Requires:	sip-api(%{sip_api_major}) = %{sip_api}
+Requires:	python-sip >= 1:4.12.2
 Requires:	%{name}-core = %{version}
 Requires:	%{name}-dbus = %{version}
 Requires:	%{name}-declarative = %{version}
