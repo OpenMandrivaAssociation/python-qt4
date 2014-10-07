@@ -1,2 +1,4 @@
-sources:
+removed_sources:
   PyQt-x11-gpl-4.10.4.tar.gz: 33243462987a0ff135487855e2dcd1de1834d1fa
+sources:
+  PyQt-x11-gpl-4.11.2.tar.gz: bf96f7ba29fff4b33205cb2d2d033841494d187e
