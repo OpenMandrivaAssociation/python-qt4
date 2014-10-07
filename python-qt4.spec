@@ -13,6 +13,7 @@ BuildRequires:	python-sip >= 1:4.12.2
 BuildRequires:	sed
 BuildRequires:	qt4-devel >= 3:4.5.1
 BuildRequires:	pkgconfig(dbus-1)
+BuildRequires:	python3-dbus
 BuildRequires:	pkgconfig(dbus-python)
 BuildRequires:	pkgconfig(phonon)
 BuildRequires:	pkgconfig(python)
