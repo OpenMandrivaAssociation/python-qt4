@@ -18,6 +18,7 @@ BuildRequires:	python3-dbus
 BuildRequires:	pkgconfig(dbus-python)
 BuildRequires:	pkgconfig(phonon)
 BuildRequires:	pkgconfig(python3)
+BuildRequires:	pkgconfig(python)
 BuildRequires:	pkgconfig(QtAssistantClient)
 BuildRequires:	pkgconfig(QtWebKit)
 Provides:	PyQt4 = %{version}-%{release}
