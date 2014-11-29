@@ -1,10 +1,11 @@
 %define debug_package %{nil}
+%bcond_with	python2
 %define name2 python2-qt4
 
 Summary:	Set of Python bindings for Trolltech's Qt application framework
 Name:		python-qt4
 Version:	4.11.2
-Release:	2
+Release:	3
 Group:		Development/KDE and Qt
 License:	GPLv2+
 Url:		http://www.riverbankcomputing.co.uk/software/pyqt/intro
@@ -19,7 +20,9 @@ BuildRequires:	python3-dbus
 BuildRequires:	pkgconfig(dbus-python)
 BuildRequires:	pkgconfig(phonon)
 BuildRequires:	pkgconfig(python3)
+%if %{with python2}
 BuildRequires:	pkgconfig(python)
+%endif
 BuildRequires:	pkgconfig(QtAssistantClient)
 BuildRequires:	pkgconfig(QtWebKit)
 Provides:	PyQt4 = %{version}-%{release}
@@ -349,6 +352,7 @@ PyQt 4 devel utilities.
 %{_bindir}/pylupdate4
 %{qt4plugins}/designer/*
 
+%if %{with python2}
 #------------------------------------------------------------
 %package -n %{name2}-core
 Summary:	PyQt 4 core
@@ -664,6 +668,7 @@ Requires:	%{name2}-xmlpatterns = %{version}
 PyQt is a set of Python2 bindings for Trolltech's Qt application framework
 
 %files -n %{name2}
+%endif
 
 %prep
 %setup -qn PyQt-x11-gpl-%{version}
@@ -697,6 +702,7 @@ sed -i "s,/usr/lib/qt4//include/phonon,/usr/include/phonon,g" phonon/Makefile
 
 %make
 
+%if %{with python2}
 pushd %{py2dir}
 %{__python2} ./configure.py \
 	--qsci-api \
@@ -718,11 +724,12 @@ sed -i "s,/usr/lib/qt4/include/phonon,/usr/include/phonon,g" phonon/Makefile
 sed -i "s,/usr/lib/qt4//include/phonon,/usr/include/phonon,g" phonon/Makefile
 	
 %make
-
+%endif
 
 %install
 # Install Python 3 first, and move aside any executables, to avoid clobbering
 # the Python 2 installation:
+%if %{with python2}
 pushd %{py2dir}
 %makeinstall_std INSTALL_ROOT=%{buildroot}
 mkdir -p %buildroot%_docdir/%name2
@@ -732,6 +739,7 @@ mkdir %buildroot%_docdir/%name2/examples
     cp -fr examples/* %buildroot%_docdir/%name2/examples/ 
 
 popd
+%endif
 
 %makeinstall_std INSTALL_ROOT=%{buildroot}
 mkdir -p %buildroot%_docdir/%name
