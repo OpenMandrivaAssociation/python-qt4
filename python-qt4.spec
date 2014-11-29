@@ -11,6 +11,7 @@ Url:		http://www.riverbankcomputing.co.uk/software/pyqt/intro
 Source0:	http://garr.dl.sourceforge.net/project/pyqt/PyQt4/PyQt-%{version}/PyQt-x11-gpl-%{version}.tar.gz
 Patch2:		03_qreal_float_support.dpatch
 BuildRequires:	python-sip >= 1:4.12.2
+BuildRequires:	python2-sip >= 1:4.12.2
 BuildRequires:	sed
 BuildRequires:	qt4-devel >= 3:4.5.1
 BuildRequires:	pkgconfig(dbus-1)
