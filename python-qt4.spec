@@ -1,11 +1,11 @@
 %define debug_package %{nil}
-%bcond_with	python2
+%bcond_without	python2
 %define name2 python2-qt4
 
 Summary:	Set of Python bindings for Trolltech's Qt application framework
 Name:		python-qt4
 Version:	4.11.2
-Release:	5
+Release:	6
 Group:		Development/KDE and Qt
 License:	GPLv2+
 Url:		http://www.riverbankcomputing.co.uk/software/pyqt/intro
