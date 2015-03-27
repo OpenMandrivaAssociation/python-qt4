@@ -4,12 +4,12 @@
 
 Summary:	Set of Python bindings for Trolltech's Qt application framework
 Name:		python-qt4
-Version:	4.11.2
-Release:	6
+Version:	4.11.3
+Release:	1
 Group:		Development/KDE and Qt
 License:	GPLv2+
 Url:		http://www.riverbankcomputing.co.uk/software/pyqt/intro
-Source0:	http://garr.dl.sourceforge.net/project/pyqt/PyQt4/PyQt-%{version}/PyQt-x11-gpl-%{version}.tar.gz
+Source0:	http://downloads.sourceforge.net/pyqt/PyQt-x11-gpl-%{version}.tar.gz
 Patch2:		03_qreal_float_support.dpatch
 BuildRequires:	python-sip >= 1:4.12.2
 BuildRequires:	sed
@@ -334,7 +334,7 @@ BuildArch: noarch
 PyQt 4 examples
 
 %files		examples
-%doc %_docdir/%name/
+%doc %_docdir/%{name}/
 #------------------------------------------------------------
 
 %package devel
@@ -635,14 +635,14 @@ BuildArch:	noarch
 Py2Qt 4 examples
 
 %files -n %{name2}-examples
-%doc %_docdir/%name2/
+%doc %_docdir/%{name}2/
 
 #------------------------------------------------------------
 # PYTHON 2
 %package -n	%{name2}
 Summary:	Set of Python3 bindings for Trolltech's Qt application framework
 Group:		Development/KDE and Qt
-Provides:	python2-qt4 = %version-%release
+Provides:	python2-qt4 = %{version}-%{release}
 Provides:	Py2Qt4 = %{version}-%{release}
 Requires:	sip-api(%{sip_api_major}) = %{sip_api}
 Requires:	%{name2}-core = %{version}
@@ -681,7 +681,7 @@ export PATH=%{qt4dir}/bin:$PATH
 export CFLAGS='%{optflags} -fPIC' 
 export CXXFLAGS='%{optflags} -fPIC'
 
-%{__python} ./configure.py \
+python ./configure.py \
 	--qsci-api \
 	--confirm-license \
 	--sipdir=%{_datadir}/python-sip/PyQt4 \
@@ -704,7 +704,7 @@ sed -i "s,/usr/lib/qt4//include/phonon,/usr/include/phonon,g" phonon/Makefile
 
 %if %{with python2}
 pushd %{py2dir}
-%{__python2} ./configure.py \
+python2} ./configure.py \
 	--qsci-api \
 	--sipdir=%{_datadir}/python2-sip/PyQt4 \
 	--confirm-license \
@@ -732,24 +732,24 @@ sed -i "s,/usr/lib/qt4//include/phonon,/usr/include/phonon,g" phonon/Makefile
 %if %{with python2}
 pushd %{py2dir}
 %makeinstall_std INSTALL_ROOT=%{buildroot}
-mkdir -p %buildroot%_docdir/%name2
-    cp -fr doc/html/* %buildroot%_docdir/%name2/
+mkdir -p %{buildroot}%_docdir/%{name}2
+    cp -fr doc/html/* %{buildroot}%_docdir/%{name}2/
 
-mkdir %buildroot%_docdir/%name2/examples
-    cp -fr examples/* %buildroot%_docdir/%name2/examples/ 
+mkdir %{buildroot}%_docdir/%{name}2/examples
+    cp -fr examples/* %{buildroot}%_docdir/%{name}2/examples/ 
 
 popd
 %endif
 
 %makeinstall_std INSTALL_ROOT=%{buildroot}
-mkdir -p %buildroot%_docdir/%name
-    cp -fr doc/html/* %buildroot%_docdir/%name/
+mkdir -p %{buildroot}%_docdir/%{name}
+    cp -fr doc/html/* %{buildroot}%_docdir/%{name}/
 
-mkdir %buildroot%_docdir/%name/examples
-    cp -fr examples/* %buildroot%_docdir/%name/examples/ 
+mkdir %{buildroot}%_docdir/%{name}/examples
+    cp -fr examples/* %{buildroot}%_docdir/%{name}/examples/ 
 
 # remove Python 3 code from Python 2.6 directory, fixes FTBFS (#564633)
 rm -rf %{buildroot}%{python2_sitearch}/PyQt4/uic/port_v3/
 
 # likewise, remove Python 2 code from the Python 3.1 directory:
-rm -rf %{buildroot}%{python_sitearch}/PyQt4/uic/port_v2/
+rm -rf %{buildroot}%{py_platsitedir}/PyQt4/uic/port_v2/
