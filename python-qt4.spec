@@ -717,7 +717,7 @@ pushd %{py2dir}
 
 for name in Qt dbus phonon QtAssistant QtCore QtDBus QtDeclarative QtGui QtMultimedia QtNetwork QtOpenGL QtWebKit QtScript QtSvg QtSql QtDesigner QtTest QtXml QtXmlPatterns QtHelp QtScriptTools; do
     if [ -e ${name}/Makefile ]; then
-        sed -i "s,^LIBS = ,LIBS = $(python-config --libs) ,g" ${name}/Makefile
+        sed -i "s,^LIBS = ,LIBS = $(python2-config --libs) ,g" ${name}/Makefile
 	fi
 done
 sed -i "s,/usr/lib/qt4/include/phonon,/usr/include/phonon,g" phonon/Makefile
