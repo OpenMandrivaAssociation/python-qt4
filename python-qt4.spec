@@ -5,7 +5,7 @@
 Summary:	Set of Python bindings for Trolltech's Qt application framework
 Name:		python-qt4
 Version:	4.11.2
-Release:	9
+Release:	10
 Group:		Development/KDE and Qt
 License:	GPLv2+
 Url:		http://www.riverbankcomputing.co.uk/software/pyqt/intro
@@ -686,7 +686,7 @@ export CXXFLAGS='%{optflags} -fPIC'
 	--confirm-license \
 	--sipdir=%{_datadir}/python-sip/PyQt4 \
 	-s /usr/include/dbus-1.0
-	
+
 # Some modules not requires X libraries
 # Python sip not diferentiate qt modules and always add a X set of 
 # libs to link. We're explicitely this unecessary links
@@ -722,7 +722,7 @@ for name in Qt dbus phonon QtAssistant QtCore QtDBus QtDeclarative QtGui QtMulti
 done
 sed -i "s,/usr/lib/qt4/include/phonon,/usr/include/phonon,g" phonon/Makefile
 sed -i "s,/usr/lib/qt4//include/phonon,/usr/include/phonon,g" phonon/Makefile
-	
+
 %make
 %endif
 
