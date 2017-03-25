@@ -4,12 +4,12 @@
 
 Summary:	Set of Python bindings for Trolltech's Qt application framework
 Name:		python-qt4
-Version:	4.11.2
-Release:	10
+Version:	4.12
+Release:	1
 Group:		Development/KDE and Qt
 License:	GPLv2+
 Url:		http://www.riverbankcomputing.co.uk/software/pyqt/intro
-Source0:	http://garr.dl.sourceforge.net/project/pyqt/PyQt4/PyQt-%{version}/PyQt-x11-gpl-%{version}.tar.gz
+Source0:	http://sourceforge.net/projects/pyqt/files/PyQt4/PyQt-%{version}/PyQt4_gpl_x11-%{version}.tar.gz
 Patch2:		03_qreal_float_support.dpatch
 BuildRequires:	python-sip >= 1:4.12.2
 BuildRequires:	sed
@@ -671,7 +671,7 @@ PyQt is a set of Python2 bindings for Trolltech's Qt application framework
 %endif
 
 %prep
-%setup -qn PyQt-x11-gpl-%{version}
+%setup -qn PyQt4_gpl_x11-%{version}
 %apply_patches
 cp -a . %{py2dir}
 
