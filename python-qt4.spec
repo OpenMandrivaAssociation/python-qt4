@@ -4,7 +4,7 @@
 
 Summary:	Set of Python bindings for Trolltech's Qt application framework
 Name:		python-qt4
-Version:	4.12
+Version:	4.12.1
 Release:	1
 Group:		Development/KDE and Qt
 License:	GPLv2+
