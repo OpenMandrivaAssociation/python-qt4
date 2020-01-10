@@ -672,7 +672,7 @@ PyQt is a set of Python2 bindings for Trolltech's Qt application framework
 
 %prep
 %setup -qn PyQt4_gpl_x11-%{version}
-%apply_patches
+%autopatch -p1
 cp -a . %{py2dir}
 
 %build
