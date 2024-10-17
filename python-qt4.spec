@@ -8,7 +8,7 @@ Version:	4.12.1
 Release:	1
 Group:		Development/KDE and Qt
 License:	GPLv2+
-Url:		http://www.riverbankcomputing.co.uk/software/pyqt/intro
+Url:		https://www.riverbankcomputing.co.uk/software/pyqt/intro
 Source0:	http://sourceforge.net/projects/pyqt/files/PyQt4/PyQt-%{version}/PyQt4_gpl_x11-%{version}.tar.gz
 Patch2:		03_qreal_float_support.dpatch
 BuildRequires:	python-sip >= 1:4.12.2
