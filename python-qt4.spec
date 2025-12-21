@@ -11,6 +11,7 @@ License:	GPLv2+
 Url:		https://www.riverbankcomputing.co.uk/software/pyqt/intro
 Source0:	http://sourceforge.net/projects/pyqt/files/PyQt4/PyQt-%{version}/PyQt4_gpl_x11-%{version}.tar.gz
 Patch2:		03_qreal_float_support.dpatch
+BuildRequires:	make
 BuildRequires:	python-sip >= 1:4.12.2
 BuildRequires:	sed
 BuildRequires:	qt4-devel >= 3:4.5.1
